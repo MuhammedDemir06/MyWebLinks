@@ -9,10 +9,44 @@
   <div class="panel">
     <h1 class="name">Muhammed Demir</h1>
     <div class="sections">
-      <div class="section">Published Games</div>
-      <div class="section">Links</div>
-      <div class="section">Works</div>
+      <div class="section active" onclick="showPanel('games', this)">Published Games</div>
+      <div class="section" onclick="showPanel('links', this)">Links</div>
+      <div class="section" onclick="showPanel('works', this)">Works</div>
+    </div>
+
+ <div class="content" id="games">
+  <h2>Published Games</h2>
+
+  <div class="game-card">
+    <a href="https://store.steampowered.com/app/3387660/Codebound/" target="_blank" class="game-title">Codebound</a>
+    <p class="game-desc">Codebound, A simple 2D pixel art platformer with a story.(Steam Project)</p>
+  </div>
+</div>
+
+    <div class="content" id="links" style="display:none;">
+      <h2>Links</h2>
+      <a href="https://github.com/MuhammedDemir06" class="item-button">GitHub</a>
+      <a href="https://www.linkedin.com/in/muhammed-demir-945625311" class="item-button">LinkedIn</a>
+      <a href="https://www.youtube.com/@issoeEnt/videos" class="item-button">Youtube</a>
+      <a href="https://mail.google.com" class="item-button" target="_blank">Gmail</a>
+    </div>
+
+    <div class="content" id="works" style="display:none;">
+      <h2>Works</h2>
+      <a href="https://github.com/MuhammedDemir06/Iron-Tools" class="item-button">Unity Iron Tools Framework (Github)</a>
     </div>
   </div>
+
+  <script>
+    function showPanel(panelId, clickedButton) {
+      const panels = document.querySelectorAll('.content');
+      panels.forEach(p => p.style.display = 'none');
+      document.getElementById(panelId).style.display = 'block';
+
+      const buttons = document.querySelectorAll('.section');
+      buttons.forEach(b => b.classList.remove('active'));
+      clickedButton.classList.add('active');
+    }
+  </script>
 </body>
 </html>
